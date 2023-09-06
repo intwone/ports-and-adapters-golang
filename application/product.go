@@ -4,6 +4,7 @@ import (
 	"errors"
 
 	"github.com/asaskevich/govalidator"
+	uuid "github.com/satori/go.uuid"
 )
 
 type Status string
@@ -32,6 +33,15 @@ type Product struct {
 
 func init() {
 	govalidator.SetFieldsRequiredByDefault(true)
+}
+
+func NewProduct() *Product {
+	product := Product{
+		Id:     uuid.NewV4().String(),
+		Status: string(Enabled),
+	}
+
+	return &product
 }
 
 func (p *Product) IsValid() (bool, error) {
