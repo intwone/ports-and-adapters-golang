@@ -11,31 +11,31 @@ import (
 	application "github.com/intwone/ports-and-adapters-golang/application"
 )
 
-// MockProdutServiceInterface is a mock of ProdutServiceInterface interface.
-type MockProdutServiceInterface struct {
+// MockProdutServiceInterface is a mock of ProductServiceInterface interface.
+type MockProductServiceInterface struct {
 	ctrl     *gomock.Controller
 	recorder *MockProdutServiceInterfaceMockRecorder
 }
 
 // MockProdutServiceInterfaceMockRecorder is the mock recorder for MockProdutServiceInterface.
 type MockProdutServiceInterfaceMockRecorder struct {
-	mock *MockProdutServiceInterface
+	mock *MockProductServiceInterface
 }
 
 // NewMockProdutServiceInterface creates a new mock instance.
-func NewMockProdutServiceInterface(ctrl *gomock.Controller) *MockProdutServiceInterface {
-	mock := &MockProdutServiceInterface{ctrl: ctrl}
+func NewMockProdutServiceInterface(ctrl *gomock.Controller) *MockProductServiceInterface {
+	mock := &MockProductServiceInterface{ctrl: ctrl}
 	mock.recorder = &MockProdutServiceInterfaceMockRecorder{mock}
 	return mock
 }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
-func (m *MockProdutServiceInterface) EXPECT() *MockProdutServiceInterfaceMockRecorder {
+func (m *MockProductServiceInterface) EXPECT() *MockProdutServiceInterfaceMockRecorder {
 	return m.recorder
 }
 
 // Create mocks base method.
-func (m *MockProdutServiceInterface) Create(name string, price float64) (application.ProductInterface, error) {
+func (m *MockProductServiceInterface) Create(name string, price int64) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Create", name, price)
 	ret0, _ := ret[0].(application.ProductInterface)
@@ -46,11 +46,11 @@ func (m *MockProdutServiceInterface) Create(name string, price float64) (applica
 // Create indicates an expected call of Create.
 func (mr *MockProdutServiceInterfaceMockRecorder) Create(name, price interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockProdutServiceInterface)(nil).Create), name, price)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockProductServiceInterface)(nil).Create), name, price)
 }
 
 // Disable mocks base method.
-func (m *MockProdutServiceInterface) Disable(product application.ProductInterface) (application.ProductInterface, error) {
+func (m *MockProductServiceInterface) Disable(product application.ProductInterface) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Disable", product)
 	ret0, _ := ret[0].(application.ProductInterface)
@@ -61,11 +61,11 @@ func (m *MockProdutServiceInterface) Disable(product application.ProductInterfac
 // Disable indicates an expected call of Disable.
 func (mr *MockProdutServiceInterfaceMockRecorder) Disable(product interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Disable", reflect.TypeOf((*MockProdutServiceInterface)(nil).Disable), product)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Disable", reflect.TypeOf((*MockProductServiceInterface)(nil).Disable), product)
 }
 
 // Enable mocks base method.
-func (m *MockProdutServiceInterface) Enable(product application.ProductInterface) (application.ProductInterface, error) {
+func (m *MockProductServiceInterface) Enable(product application.ProductInterface) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Enable", product)
 	ret0, _ := ret[0].(application.ProductInterface)
@@ -76,11 +76,11 @@ func (m *MockProdutServiceInterface) Enable(product application.ProductInterface
 // Enable indicates an expected call of Enable.
 func (mr *MockProdutServiceInterfaceMockRecorder) Enable(product interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Enable", reflect.TypeOf((*MockProdutServiceInterface)(nil).Enable), product)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Enable", reflect.TypeOf((*MockProductServiceInterface)(nil).Enable), product)
 }
 
 // Get mocks base method.
-func (m *MockProdutServiceInterface) Get(id string) (application.ProductInterface, error) {
+func (m *MockProductServiceInterface) Get(id string) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Get", id)
 	ret0, _ := ret[0].(application.ProductInterface)
@@ -91,7 +91,7 @@ func (m *MockProdutServiceInterface) Get(id string) (application.ProductInterfac
 // Get indicates an expected call of Get.
 func (mr *MockProdutServiceInterfaceMockRecorder) Get(id interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockProdutServiceInterface)(nil).Get), id)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockProductServiceInterface)(nil).Get), id)
 }
 
 // MockProductReader is a mock of ProductReader interface.

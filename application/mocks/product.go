@@ -91,10 +91,10 @@ func (mr *MockProductInterfaceMockRecorder) GetName() *gomock.Call {
 }
 
 // GetPrice mocks base method.
-func (m *MockProductInterface) GetPrice() float64 {
+func (m *MockProductInterface) GetPrice() int64 {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetPrice")
-	ret0, _ := ret[0].(float64)
+	ret0, _ := ret[0].(int64)
 	return ret0
 }
 

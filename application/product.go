@@ -21,14 +21,14 @@ type ProductInterface interface {
 	GetId() string
 	GetName() string
 	GetStatus() Status
-	GetPrice() float64
+	GetPrice() int64
 }
 
 type Product struct {
-	Id     string  `valid:"uuidv4"`
-	Name   string  `valid:"required"`
-	Status string  `valid:"required"`
-	Price  float64 `valid:"float,optional"`
+	Id     string `valid:"uuidv4"`
+	Name   string `valid:"required"`
+	Status string `valid:"required"`
+	Price  int64  `valid:"int64,optional"`
 }
 
 func init() {
@@ -88,6 +88,6 @@ func (p *Product) GetStatus() Status {
 	return Status(p.Status)
 }
 
-func (p *Product) GetPrice() float64 {
+func (p *Product) GetPrice() int64 {
 	return p.Price
 }

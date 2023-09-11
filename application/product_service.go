@@ -1,8 +1,8 @@
 package application
 
-type ProdutServiceInterface interface {
+type ProductServiceInterface interface {
 	Get(id string) (ProductInterface, error)
-	Create(name string, price float64) (ProductInterface, error)
+	Create(name string, price int64) (ProductInterface, error)
 	Enable(product ProductInterface) (ProductInterface, error)
 	Disable(product ProductInterface) (ProductInterface, error)
 }
@@ -24,6 +24,10 @@ type ProductService struct {
 	Persistence ProductPersistenceInterface
 }
 
+func NewProductService(persistence ProductPersistenceInterface) *ProductService {
+	return &ProductService{Persistence: persistence}
+}
+
 func (ps *ProductService) Get(id string) (ProductInterface, error) {
 	result, err := ps.Persistence.Get(id)
 
@@ -34,7 +38,7 @@ func (ps *ProductService) Get(id string) (ProductInterface, error) {
 	return result, nil
 }
 
-func (ps *ProductService) Create(name string, price float64) (ProductInterface, error) {
+func (ps *ProductService) Create(name string, price int64) (ProductInterface, error) {
 	product := NewProduct()
 	product.Name = name
 	product.Price = price
